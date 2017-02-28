@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<form ng-app="" name="myForm" >
+	<input type = "email" name="myAddress" ng-model="myText" required/>
+	<h1>状态</h1>
+	{{myForm.myAddress.$valid}}
+	{{myForm.myAddress.$dirty}}
+	{{myForm.myAddress.$touched}}
+</form>
+</body>
+<script>
+
+</script>
+</html>
