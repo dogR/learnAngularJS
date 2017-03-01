@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body> 
+<div ng-app = 'myapp'>
+	<div ng-controller="ctrl1">
+		<button type="submit" ng-click="test()">123</button>
+	</div>
+	
+</div>
+</body>
+
+<script type="text/javascript">
+var app = angular.module('myapp',[]);
+app.controller('ctrl1',function($scope){
+	$scope.test=function(){
+		console.log(1);
+	}
+});
+</script>
+</html>

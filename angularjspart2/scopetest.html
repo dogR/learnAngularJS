@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<!-- <body>
+	<div ng-controller="EventController">
+	<tt>RootScope</tt> count:{{count}}
+		<ul>
+			<li ng-contoller="EventController">
+				<button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+				<button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+				<tt>MidScope</tt> count:{{count}}
+				<ul>
+					<li ng-repeat="i in [1,2]" ng-controller="EventController">
+						<tt>leaf</tt>count:{{count}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller('EventController',function($scope){
+		$scope.count = 0;
+		$scope.$on('MyEvent',function(){
+					$scope.count++;
+		})
+	});
+</script> -->
+
+<body>
+	<div ng-controller="EventController">
+		Root Scope
+		<tt>My scope</tt> count: {{count}}
+		<ul>
+			<li ng-repeat="i in [1]" ng-controller="EventController">
+				<button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+				<button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+				Mid Scope
+				<tt>My scope</tt> count: {{count}}
+				<ul>
+					<li ng-controller="EventController">
+						Leaf Scope
+						<tt>My Scope</tt> count: {{count}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var app = angular.module('myapp',[]);
+	app.controller('EventController',function($scope){
+		$scope.count=0;
+		$scope.$on('MyEvent',function(){
+			$scope.count++;
+		});
+/*		$scope.MyEvent=function(){
+			$scope.count++;
+		};*/
+	});
+</script>
+</html>
