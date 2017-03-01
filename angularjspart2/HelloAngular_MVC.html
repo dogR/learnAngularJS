@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body> 
+<div ng-app = 'myapp' class="shwo-scope-demo">
+	<div ng-controller="textControl">
+		Hello {{name}}!
+	</div>
+
+	<div ng-controller="listControl">
+		<ol>
+			<li ng-repeat="name in names">
+				{{name}} ...{{departent}}
+			</li>
+		</ol>
+	</div>
+</div>
+</body>
+
+<script type="text/javascript">
+	var app = angular.module('myapp',[]);
+	app.controller('textControl',function($scope,$rootScope){
+		$scope.name="World";
+		$rootScope.departent="angular";
+	})
+	app.controller('listControl',function($scope){
+		$scope.names=['A','B','C'];
+	})
+</script>
+</html>
